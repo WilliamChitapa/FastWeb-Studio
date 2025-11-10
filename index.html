@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FastWeb Studio - Sites Modernos e Rápidos</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Poppins:wght@600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1E90FF",
+              "background-dark": "#0B0E11",
+              "card-dark": "#1C1F24",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              heading: ["Poppins", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+            boxShadow: {
+              glass: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
+            },
+            backdropBlur: {
+              xl: "20px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass-card {
+        background: rgba(28, 31, 36, 0.6);
+        @apply bg-card-dark/60 rounded-xl border border-white/10 shadow-glass backdrop-blur-xl;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-background-dark font-display text-white">
+    <div
+      class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="flex w-full flex-col">
+          <div class="mx-auto flex w-full max-w-5xl flex-col px-4">
+            <header
+              class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 bg-background-dark/80 px-6 py-4 backdrop-blur-xl"
+            >
+              <div class="flex items-center gap-4 text-white">
+                <span class="material-symbols-outlined text-primary text-2xl">
+                  waves
+                </span>
+                <h2 class="font-heading text-lg font-bold tracking-[-0.015em]">
+                  FastWeb Studio
+                </h2>
+              </div>
+              <div class="hidden md:flex flex-1 items-center justify-end gap-8">
+                <nav class="flex items-center gap-9">
+                  <a
+                    class="text-white/80 hover:text-white text-sm font-medium transition-colors"
+                    href="#home"
+                    >Home</a
+                  >
+                  <a
+                    class="text-white/80 hover:text-white text-sm font-medium transition-colors"
+                    href="#servicos"
+                    >Serviços</a
+                  >
+                  <a
+                    class="text-white/80 hover:text-white text-sm font-medium transition-colors"
+                    href="#portfolio"
+                    >Portfólio</a
+                  >
+                  <a
+                    class="text-white/80 hover:text-white text-sm font-medium transition-colors"
+                    href="#sobre"
+                    >Sobre</a
+                  >
+                  <a
+                    class="text-white/80 hover:text-white text-sm font-medium transition-colors"
+                    href="#contato"
+                    >Contato</a
+                  >
+                </nav>
+                <a
+                  class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold tracking-[0.015em] hover:bg-primary/90 transition-colors"
+                  href="https://wa.me/244944030498"
+                  target="_blank"
+                >
+                  <span class="truncate">Falar no WhatsApp</span>
+                </a>
+              </div>
+              <button
+                class="md:hidden flex items-center justify-center text-white"
+              >
+                <span class="material-symbols-outlined text-2xl">menu</span>
+              </button>
+            </header>
+            <main class="flex flex-col">
+              <section class="py-24 text-center" id="home">
+                <div class="flex flex-col items-center gap-6">
+                  <h1
+                    class="font-heading text-4xl font-bold leading-tight tracking-tighter text-white md:text-6xl"
+                  >
+                    Sites rápidos, modernos e que geram resultados
+                  </h1>
+                  <h2
+                    class="max-w-2xl text-base font-normal leading-normal text-white/70 md:text-lg"
+                  >
+                    Criamos experiências digitais de alta performance que
+                    impulsionam o seu negócio.
+                  </h2>
+                  <div
+                    class="flex flex-wrap items-center justify-center gap-4 mt-4"
+                  >
+                    <a
+                      class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors"
+                      href="https://wa.me/244944030498"
+                      target="_blank"
+                    >
+                      <span class="truncate">Criar meu site agora</span>
+                    </a>
+                    <a
+                      class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 border border-white/20 bg-white/10 text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-white/20 transition-colors"
+                      href="https://my-portfolio-9rys.vercel.app/"
+                    >
+                      <span class="truncate">Ver portfólio</span>
+                    </a>
+                  </div>
+                </div>
+              </section>
+              <section class="py-16" id="servicos">
+                <div class="flex flex-col items-center text-center gap-4">
+                  <h2
+                    class="font-heading text-[28px] font-bold leading-tight tracking-tight md:text-4xl"
+                  >
+                    Nossos Serviços
+                  </h2>
+                  <p
+                    class="max-w-3xl text-base font-normal leading-normal text-white/70"
+                  >
+                    Oferecemos soluções completas para a sua presença online,
+                    desde a concepção até a performance.
+                  </p>
+                </div>
+                <div
+                  class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+                >
+                  <div class="glass-card flex flex-col gap-4 p-6">
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-primary text-3xl"
+                        >target</span
+                      >
+                      <h3
+                        class="font-heading text-lg font-semibold leading-tight text-white"
+                      >
+                        Landing Pages
+                      </h3>
+                    </div>
+                    <p class="text-sm font-normal leading-normal text-white/60">
+                      Criamos Landing Pages de alta conversão, otimizadas para
+                      capturar leads e impulsionar suas campanhas de marketing
+                      com design focado em resultados.
+                    </p>
+                  </div>
+                  <div class="glass-card flex flex-col gap-4 p-6">
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-primary text-3xl"
+                        >domain</span
+                      >
+                      <h3
+                        class="font-heading text-lg font-semibold leading-tight text-white"
+                      >
+                        Sites Institucionais
+                      </h3>
+                    </div>
+                    <p class="text-sm font-normal leading-normal text-white/60">
+                      Desenvolvemos sites institucionais profissionais que
+                      fortalecem a credibilidade da sua marca e comunicam seus
+                      valores de forma clara e impactante.
+                    </p>
+                  </div>
+                  <div class="glass-card flex flex-col gap-4 p-6">
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-primary text-3xl"
+                        >palette</span
+                      >
+                      <h3
+                        class="font-heading text-lg font-semibold leading-tight text-white"
+                      >
+                        Portfólios Modernos
+                      </h3>
+                    </div>
+                    <p class="text-sm font-normal leading-normal text-white/60">
+                      Exiba seus trabalhos com um portfólio online visualmente
+                      deslumbrante, responsivo e que valoriza cada detalhe do
+                      seu talento e projetos.
+                    </p>
+                  </div>
+                  <div class="glass-card flex flex-col gap-4 p-6">
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-primary text-3xl"
+                        >shopping_cart</span
+                      >
+                      <h3
+                        class="font-heading text-lg font-semibold leading-tight text-white"
+                      >
+                        Loja Virtual (E-commerce)
+                      </h3>
+                    </div>
+                    <p class="text-sm font-normal leading-normal text-white/60">
+                      Construímos lojas virtuais completas, seguras e fáceis de
+                      gerenciar, com design intuitivo para proporcionar a melhor
+                      experiência de compra aos seus clientes.
+                    </p>
+                  </div>
+                  <div class="glass-card flex flex-col gap-4 p-6">
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-primary text-3xl"
+                        >rocket_launch</span
+                      >
+                      <h3
+                        class="font-heading text-lg font-semibold leading-tight text-white"
+                      >
+                        Otimização de Performance
+                      </h3>
+                    </div>
+                    <p class="text-sm font-normal leading-normal text-white/60">
+                      Analisamos e otimizamos seu site existente para garantir
+                      velocidade máxima, melhor ranking no Google (SEO) e uma
+                      experiência de usuário impecável.
+                    </p>
+                  </div>
+                </div>
+              </section>
+              <section class="py-16">
+                <div class="flex flex-col gap-4 text-center">
+                  <h2
+                    class="font-heading text-[28px] font-bold leading-tight tracking-tight md:text-4xl"
+                  >
+                    Por que escolher a FastWeb Studio?
+                  </h2>
+                  <p
+                    class="mx-auto max-w-3xl text-base font-normal leading-normal text-white/70"
+                  >
+                    Combinamos design de ponta, tecnologia moderna e um serviço
+                    dedicado para entregar resultados excepcionais.
+                  </p>
+                </div>
+                <div
+                  class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+                >
+                  <div class="glass-card flex flex-1 flex-col gap-3 p-6">
+                    <span
+                      class="material-symbols-outlined text-primary text-3xl"
+                      >speed</span
+                    >
+                    <div class="flex flex-col gap-1">
+                      <h3
+                        class="font-heading text-lg font-semibold leading-tight text-white"
+                      >
+                        Velocidade Imbatível
+                      </h3>
+                      <p
+                        class="text-sm font-normal leading-normal text-white/60"
+                      >
+                        Sites otimizados para carregar em um piscar de olhos.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="glass-card flex flex-1 flex-col gap-3 p-6">
+                    <span
+                      class="material-symbols-outlined text-primary text-3xl"
+                      >auto_awesome</span
+                    >
+                    <div class="flex flex-col gap-1">
+                      <h3
+                        class="font-heading text-lg font-semibold leading-tight text-white"
+                      >
+                        Design Exclusivo
+                      </h3>
+                      <p
+                        class="text-sm font-normal leading-normal text-white/60"
+                      >
+                        Criamos layouts únicos que refletem a identidade da sua
+                        marca.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="glass-card flex flex-1 flex-col gap-3 p-6">
+                    <span
+                      class="material-symbols-outlined text-primary text-3xl"
+                      >devices</span
+                    >
+                    <div class="flex flex-col gap-1">
+                      <h3
+                        class="font-heading text-lg font-semibold leading-tight text-white"
+                      >
+                        100% Responsivo
+                      </h3>
+                      <p
+                        class="text-sm font-normal leading-normal text-white/60"
+                      >
+                        Perfeito em qualquer dispositivo, do desktop ao mobile.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="glass-card flex flex-1 flex-col gap-3 p-6">
+                    <span
+                      class="material-symbols-outlined text-primary text-3xl"
+                      >code</span
+                    >
+                    <div class="flex flex-col gap-1">
+                      <h3
+                        class="font-heading text-lg font-semibold leading-tight text-white"
+                      >
+                        Tecnologia Moderna
+                      </h3>
+                      <p
+                        class="text-sm font-normal leading-normal text-white/60"
+                      >
+                        Utilizamos as ferramentas mais recentes para garantir
+                        performance.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="glass-card flex flex-1 flex-col gap-3 p-6">
+                    <span
+                      class="material-symbols-outlined text-primary text-3xl"
+                      >groups</span
+                    >
+                    <div class="flex flex-col gap-1">
+                      <h3
+                        class="font-heading text-lg font-semibold leading-tight text-white"
+                      >
+                        Atendimento Personalizado
+                      </h3>
+                      <p
+                        class="text-sm font-normal leading-normal text-white/60"
+                      >
+                        Acompanhamento próximo em todas as etapas do projeto.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="glass-card flex flex-1 flex-col gap-3 p-6">
+                    <span
+                      class="material-symbols-outlined text-primary text-3xl"
+                      >schedule</span
+                    >
+                    <div class="flex flex-col gap-1">
+                      <h3
+                        class="font-heading text-lg font-semibold leading-tight text-white"
+                      >
+                        Entrega Rápida
+                      </h3>
+                      <p
+                        class="text-sm font-normal leading-normal text-white/60"
+                      >
+                        Seu site no ar, no prazo combinado, sem atrasos.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="py-16" id="portfolio">
+                <div class="flex flex-col items-center text-center gap-4">
+                  <h2
+                    class="font-heading text-center text-[28px] font-bold leading-tight tracking-tight md:text-4xl"
+                  >
+                    Nosso Portfólio
+                  </h2>
+                  <p
+                    class="max-w-3xl text-base font-normal leading-normal text-white/70"
+                  >
+                    Conheça alguns dos projetos que tivemos o prazer de
+                    desenvolver.
+                  </p>
+                </div>
+                <div
+                  class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+                >
+                  <div
+                    class="group relative flex flex-col overflow-hidden rounded-xl"
+                  >
+                    <img
+                      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      data-alt="Modern office with people working on computers."
+                      src="/img/Website Corporativo TechCorp.png"
+                    />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
+                    ></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                      <h3 class="font-heading text-xl font-semibold text-white">
+                        Website Corporativo TechCorp
+                      </h3>
+                      <button
+                        class="mt-3 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 border border-white/20 bg-white/10 text-white text-sm font-bold tracking-[0.015em] opacity-0 transition-opacity group-hover:opacity-100"
+                      >
+                        Ver projeto
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="group relative flex flex-col overflow-hidden rounded-xl"
+                  >
+                    <img
+                      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      data-alt="Person making a payment with a smartphone on a POS terminal."
+                      src="/img/E-commerce Moda Urbana.png"
+                    />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
+                    ></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                      <h3 class="font-heading text-xl font-semibold text-white">
+                        E-commerce Moda Urbana
+                      </h3>
+                      <button
+                        class="mt-3 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 border border-white/20 bg-white/10 text-white text-sm font-bold tracking-[0.015em] opacity-0 transition-opacity group-hover:opacity-100"
+                      >
+                        Ver projeto
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="group relative flex flex-col overflow-hidden rounded-xl"
+                  >
+                    <img
+                      alt="Pessoa trabalhando em um laptop em uma cafeteria."
+                      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      src="/img/Portfólio de Fotografia.png"
+                    />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
+                    ></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                      <h3 class="font-heading text-xl font-semibold text-white">
+                        Portfólio de Fotografia
+                      </h3>
+                      <button
+                        class="mt-3 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 border border-white/20 bg-white/10 text-white text-sm font-bold tracking-[0.015em] opacity-0 transition-opacity group-hover:opacity-100"
+                      >
+                        Ver projeto
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="py-16" id="sobre">
+                <div class="flex flex-col items-center text-center gap-4">
+                  <h2
+                    class="font-heading text-[28px] font-bold leading-tight tracking-tight md:text-4xl"
+                  >
+                    Sobre Nós
+                  </h2>
+                  <p
+                    class="max-w-3xl text-base font-normal leading-normal text-white/70"
+                  >
+                    Somos mais do que uma agência de desenvolvimento web. Somos
+                    parceiros estratégicos no crescimento do seu negócio.
+                  </p>
+                </div>
+                <div class="mt-12 flex flex-col gap-12">
+                  <div
+                    class="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center"
+                  >
+                    <img
+                      alt="Equipe colaborando em um escritório moderno"
+                      class="rounded-xl w-full h-auto object-cover"
+                      src="/img/Portfólio de Fotografia.png"
+                    />
+                    <div>
+                      <h3 class="font-heading text-2xl font-semibold">
+                        Quem Somos
+                      </h3>
+                      <p class="mt-4 text-white/70">
+                        A FastWeb Studio nasceu da paixão por tecnologia e
+                        design, com o objetivo de criar sites que não apenas
+                        impressionam visualmente, mas que também entregam
+                        performance e resultados reais. Nossa equipe é composta
+                        por especialistas dedicados a transformar ideias em
+                        realidade digital, utilizando as tecnologias mais
+                        avançadas do mercado.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <div class="glass-card p-6">
+                      <h4
+                        class="font-heading text-lg font-semibold text-primary"
+                      >
+                        Missão
+                      </h4>
+                      <p class="mt-2 text-sm text-white/60">
+                        Capacitar empresas a prosperar no ambiente digital
+                        através de websites de alta performance, design inovador
+                        e serviço excepcional.
+                      </p>
+                    </div>
+                    <div class="glass-card p-6">
+                      <h4
+                        class="font-heading text-lg font-semibold text-primary"
+                      >
+                        Visão
+                      </h4>
+                      <p class="mt-2 text-sm text-white/60">
+                        Ser a agência líder e referência em desenvolvimento de
+                        soluções web que aliam velocidade, estética e
+                        funcionalidade de forma singular.
+                      </p>
+                    </div>
+                    <div class="glass-card p-6">
+                      <h4
+                        class="font-heading text-lg font-semibold text-primary"
+                      >
+                        Valores
+                      </h4>
+                      <p class="mt-2 text-sm text-white/60">
+                        Compromisso com o cliente, busca constante por inovação,
+                        transparência em todos os processos e excelência em cada
+                        linha de código.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="py-16">
+                <h2
+                  class="font-heading text-center text-[28px] font-bold leading-tight tracking-tight md:text-4xl"
+                >
+                  Depoimentos
+                </h2>
+                <div class="mt-12">
+                  <div class="glass-card mx-auto max-w-3xl p-8 text-center">
+                    <p class="text-lg italic leading-relaxed text-white">
+                      "A FastWeb Studio transformou nossa presença online. O
+                      novo site é rápido, bonito e já está gerando mais leads do
+                      que nunca. O processo foi transparente e a equipe é
+                      fantástica!"
+                    </p>
+                    <div class="mt-6 flex items-center justify-center gap-4">
+                      <img
+                        class="h-12 w-12 rounded-full object-cover"
+                        data-alt="Portrait of a smiling man"
+                        src="/img/Gemini_Generated_Image_gshgmfgshgmfgshg.png"
+                      />
+                      <div>
+                        <p class="font-bold text-white">William</p>
+                        <p class="text-sm text-white/60">
+                          CEO, InovaTech Solutions
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="py-16" id="contato">
+                <div class="flex flex-col items-center text-center gap-4">
+                  <h2
+                    class="font-heading text-[28px] font-bold leading-tight tracking-tight md:text-4xl"
+                  >
+                    Entre em Contato
+                  </h2>
+                  <p
+                    class="max-w-3xl text-base font-normal leading-normal text-white/70"
+                  >
+                    Tem uma ideia ou um projeto em mente? Adoraríamos ouvir
+                    sobre ele. Preencha o formulário ou nos chame diretamente.
+                  </p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2">
+                  <div class="flex flex-col gap-6">
+                    <h3 class="font-heading text-xl font-semibold">
+                      Informações de Contato
+                    </h3>
+                    <a
+                      class="glass-card flex items-center gap-4 p-4 transition-transform hover:scale-105"
+                      href="mailto:contato@fastweb.studio"
+                    >
+                      <span
+                        class="material-symbols-outlined text-primary text-2xl"
+                        >email</span
+                      >
+                      <div>
+                        <p class="font-semibold">E-mail</p>
+                        <p class="text-sm text-white/60">
+                          williamchitapa@gmail.com
+                        </p>
+                      </div>
+                    </a>
+                    <a
+                      class="glass-card flex items-center gap-4 p-4 transition-transform hover:scale-105"
+                      href="https://wa.me/244944030498"
+                      target="_blank"
+                    >
+                      <span
+                        class="material-symbols-outlined text-primary text-2xl"
+                        >call</span
+                      >
+                      <div>
+                        <p class="font-semibold">WhatsApp</p>
+                        <p class="text-sm text-white/60">+244 944 030 498</p>
+                      </div>
+                    </a>
+                    <a
+                      class="glass-card flex items-center gap-4 p-4 transition-transform hover:scale-105"
+                      href="https://www.instagram.com/william_chitapa/"
+                      target="_blank"
+                    >
+                      <svg
+                        class="h-6 w-6 text-primary"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.415 2.175 8.796 2.163 12 2.163zm0 1.441c-3.171 0-3.541.012-4.774.069-2.734.125-3.958 1.348-4.083 4.083-.057 1.232-.068 1.602-.068 4.774s.011 3.542.068 4.774c.125 2.734 1.348 3.958 4.083 4.083 1.233.057 1.603.068 4.774.068s3.541-.011 4.774-.068c2.734-.125 3.958-1.348 4.083-4.083.057-1.232.068-1.602.068-4.774s-.011-3.542-.068-4.774c-.125-2.734-1.348-3.958-4.083-4.083-1.233-.056-1.603-.068-4.774-.068z"
+                        ></path>
+                        <path
+                          d="M12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666z"
+                        ></path>
+                        <path
+                          d="M16.95 6.402a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
+                        ></path>
+                      </svg>
+                      <div>
+                        <p class="font-semibold">Instagram</p>
+                        <p class="text-sm text-white/60">@william chitapa</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </section>
+              <section class="py-16">
+                <div
+                  class="glass-card flex flex-col items-center gap-6 rounded-xl p-8 text-center md:p-12"
+                >
+                  <h2
+                    class="font-heading text-3xl font-bold tracking-tight md:text-4xl"
+                  >
+                    Pronto para Lançar Seu Próximo Projeto?
+                  </h2>
+                  <p class="max-w-xl text-base text-white/70">
+                    Vamos conversar sobre como podemos ajudar a sua empresa a
+                    crescer com um site de alta performance.
+                  </p>
+                  <a
+                    class="mt-4 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold tracking-[0.015em] hover:bg-primary/90 transition-colors"
+                    href="https://wa.me/244944030498"
+                    target="_blank"
+                  >
+                    <span class="truncate">Falar no WhatsApp</span>
+                  </a>
+                </div>
+              </section>
+            </main>
+            <footer class="mt-16 border-t border-white/10 py-12">
+              <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+                <div class="md:col-span-2">
+                  <div class="flex items-center gap-4 text-white">
+                    <span
+                      class="material-symbols-outlined text-primary text-2xl"
+                    >
+                      waves
+                    </span>
+                    <h2
+                      class="font-heading text-lg font-bold tracking-[-0.015em]"
+                    >
+                      FastWeb Studio
+                    </h2>
+                  </div>
+                  <p class="mt-4 text-sm text-white/60">
+                    Criando o futuro da web, um site de cada vez.
+                  </p>
+                </div>
+                <div>
+                  <h3 class="font-heading text-base font-semibold text-white">
+                    Links Rápidos
+                  </h3>
+                  <nav class="mt-4 flex flex-col gap-2">
+                    <a
+                      class="text-sm text-white/60 hover:text-white transition-colors"
+                      href="#servicos"
+                      >Serviços</a
+                    >
+                    <a
+                      class="text-sm text-white/60 hover:text-white transition-colors"
+                      href="#portfolio"
+                      >Portfólio</a
+                    >
+                    <a
+                      class="text-sm text-white/60 hover:text-white transition-colors"
+                      href="#sobre"
+                      >Sobre</a
+                    >
+                    <a
+                      class="text-sm text-white/60 hover:text-white transition-colors"
+                      href="#contato"
+                      >Contato</a
+                    >
+                  </nav>
+                </div>
+                <div>
+                  <h3 class="font-heading text-base font-semibold text-white">
+                    Contato
+                  </h3>
+                  <div class="mt-4 flex flex-col gap-3">
+                    <a
+                      class="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+                      href="mailto:contato@fastweb.studio"
+                    >
+                      <span class="material-symbols-outlined text-sm"
+                        >email</span
+                      >
+                      williamchitapa@gmail.com
+                    </a>
+                    <a
+                      class="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+                      href="https://wa.me/244944030498"
+                      target="_blank"
+                    >
+                      <span class="material-symbols-outlined text-sm"
+                        >call</span
+                      >
+                      +244 944 030 498
+                    </a>
+                  </div>
+                  <div class="mt-4 flex gap-4">
+                    <a
+                      class="text-white/60 hover:text-white transition-colors"
+                      href="https://instagram.com/fastwebstudio"
+                      target="_blank"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="h-5 w-5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.343 2.525c.636-.247 1.363-.416 2.427-.465C9.793 2.013 10.147 2 12.315 2zm-1.161 14.596a5.48 5.48 0 100-10.96 5.48 5.48 0 000 10.96zM12 15.11a3.11 3.11 0 110-6.22 3.11 3.11 0 010 6.22zM17.844 6.156a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"
+                          fill-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      class="text-white/60 hover:text-white transition-colors"
+                      href="#"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="h-5 w-5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11.999 0C5.373 0 0 5.373 0 12s5.373 12 11.999 12C18.627 24 24 18.627 24 12S18.627 0 11.999 0zm-1.025 19.5h-3.047V9.975h3.047v9.525zM9.451 8.525c-.99 0-1.791-.801-1.791-1.791s.801-1.791 1.791-1.791S11.242 5.743 11.242 6.734s-.801 1.791-1.791 1.791zm10.074 10.975h-3.047V14.2c0-1.26-.023-2.88-1.758-2.88-1.758 0-2.028 1.373-2.028 2.788v5.392h-3.047V9.975h2.923v1.339h.04c.407-.772 1.4-1.583 2.885-1.583 3.087 0 3.657 2.031 3.657 4.672v5.102z"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mt-8 border-t border-white/10 pt-8 text-center text-sm text-white/50"
+              >
+                © 2024 FastWeb Studio. Todos os direitos reservados.
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
