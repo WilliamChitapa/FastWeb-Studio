@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador de Documentos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    textarea,
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #preview {
+      padding: 10px;
+      border: 1px solid #ddd;
+      min-height: 150px;
+      background-color: #fafafa;
+      white-space: pre-wrap;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>Gerador de Documentos</h1>
+
+      <label>Digite o conteúdo do documento modelo:</label>
+      <textarea
+        id="modeloTexto"
+        placeholder="Cole aqui o conteúdo do Word..."
+      ></textarea>
+
+      <label>Digite o novo tema ou instruções:</label>
+      <input
+        type="text"
+        id="novoTema"
+        placeholder="Ex: Vendas de equipamentos informáticos online"
+      />
+
+      <button id="gerarPDF">Gerar PDF</button>
+      <button id="gerarWord">Gerar Word</button>
+
+      <h2>Preview do Documento</h2>
+      <div id="preview"></div>
+    </div>
+
+    <!-- Bibliotecas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.1.0/docx.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+      // Captura elementos
+      const modeloTexto = document.getElementById("modeloTexto");
+      const novoTema = document.getElementById("novoTema");
+      const preview = document.getElementById("preview");
+      const gerarPDFBtn = document.getElementById("gerarPDF");
+      const gerarWordBtn = document.getElementById("gerarWord");
+
+      // Função para gerar conteúdo adaptado (simula IA)
+      function gerarConteudoIA(texto, tema) {
+        // Aqui você poderia integrar com a API real da OpenAI
+        return `Tema: ${tema}\n\n` + texto.replace(/Tema original/g, tema);
+      }
+
+      // Atualiza preview ao digitar
+      modeloTexto.addEventListener("input", () => atualizarPreview());
+      novoTema.addEventListener("input", () => atualizarPreview());
+
+      function atualizarPreview() {
+        const novoConteudo = gerarConteudoIA(modeloTexto.value, novoTema.value);
+        preview.textContent = novoConteudo;
+      }
+
+      // Gerar PDF
+      gerarPDFBtn.addEventListener("click", () => {
+        const novoConteudo = gerarConteudoIA(modeloTexto.value, novoTema.value);
+        const opt = {
+          margin: 0.5,
+          filename: "Documento.pdf",
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+        };
+        const elemento = document.createElement("div");
+        elemento.textContent = novoConteudo;
+        html2pdf().from(elemento).set(opt).save();
+      });
+
+      // Gerar Word
+      gerarWordBtn.addEventListener("click", async () => {
+        const novoConteudo = gerarConteudoIA(modeloTexto.value, novoTema.value);
+
+        const doc = new docx.Document({
+          sections: [
+            {
+              properties: {},
+              children: [new docx.Paragraph({ text: novoConteudo })],
+            },
+          ],
+        });
+
+        const packer = new docx.Packer();
+        const blob = await packer.toBlob(doc);
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "Documento.docx";
+        link.click();
+      });
+    </script>
+  </body>
+</html>
